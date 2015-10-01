@@ -1,0 +1,20 @@
+document.getElementById("foot01").innerHTML =
+"<p>&copy;  " + new Date().getFullYear() + " W3Schools. All rights reserved.</p>";
+
+document.getElementById("nav01").innerHTML =
+"<ul id='menu'>" +
+"<li><a href='index.html'>Home</a></li>" +
+"<li><a href='customers.html'>Data</a></li>" +
+"<li><a href='about.html'>About</a></li>" +
+"</ul>";
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("main").innerHTML = xhttp.responseText;
+    }
+  }
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
